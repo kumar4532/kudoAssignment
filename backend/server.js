@@ -1,9 +1,12 @@
-import e, { urlencoded } from "express";
+import e from "express";
 import connectDB from "./db/connect.js";
 import dotenv from "dotenv"
 import cookieParser from "cookie-parser";
 import authRouter from "./routers/auth.routes.js"
 import profileRouter from "./routers/profile.routes.js"
+import path from "path"
+
+const __dirname = path.resolve()
 
 dotenv.config({
     path: "./.env"
