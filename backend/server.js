@@ -19,6 +19,12 @@ app.use(e.urlencoded({extended:true}))
 app.use("/api/auth", authRouter);
 app.use("/api/profile", profileRouter);
 
+app.use(e.static(path.join(__dirname, "/frontend/dist")));
+
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "frontend", "dist", "index.html"))
+})
+
 connectDB()
 .then(() => {
     app.listen(PORT, () => {
